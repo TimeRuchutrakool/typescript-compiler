@@ -1,1 +1,1 @@
-console.log("Hello World from app.ts")
+console.log("Hello World from app")
