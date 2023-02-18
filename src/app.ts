@@ -9,7 +9,6 @@ interface Dog extends Animal {
 type Example = Dog extends Animal ? string : number;
 
 // SomeType extends OtherType ? TrueType : FalseType;
-
 type isString<T> = T extends string ? true : false;
 
 type A = isString<string>;
