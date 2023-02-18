@@ -1,20 +1,20 @@
-let numbers = [1, 5, 6, 8, 10];
-
-let stringNumbers = numbers.map((each) => each.toString());
-
-console.log(stringNumbers);
-
-type Weekdays = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri';
-type Day = Weekdays | 'Sat' | 'Sunday';
-
-type NextDay = {
-  [W in Weekdays]: Day;
+type Artist = {
+  id: number;
+  name: string;
+  bio: string;
 };
 
-let nextDay: NextDay = {
-  Mon: 'Tue',
-  Tue: 'Wed',
-  Wed: 'Thu',
-  Thu: 'Fri',
-  Fri: 'Sat',
+type MappedArtistForEdit = {
+  [Property in keyof Artist]?: Artist[Property];
+} & { id: number };
+
+const artist: Artist = {
+  id: 1,
+  name: 'Justin',
+  bio: 'Hey, I am Justin',
+};
+
+const editedArtist: MappedArtistForEdit = {
+  id: 1,
+  bio: 'Hello, I am Justin',
 };
