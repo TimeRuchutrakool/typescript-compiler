@@ -1,12 +1,18 @@
-const numbers = {
-  x: 10,
-  y: {
-    z: 20,
-  },
-} as const;
+type Weekdays = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri';
 
-let firstNameField = document.querySelector(
-  '#firstName'
-)! as HTMLInputElement;
+type Day = Weekdays | 'Sat' | 'Sun';
 
-firstNameField.value;
+function nextDayForAWeekDay(weekday: Weekdays): Day {
+  switch (weekday) {
+    case 'Mon':
+      return 'Tue';
+    case 'Tue':
+      return 'Wed';
+    case 'Wed':
+      return 'Thu';
+    case 'Thu':
+      return 'Fri';
+    case 'Fri':
+      return 'Sat';
+  }
+}
