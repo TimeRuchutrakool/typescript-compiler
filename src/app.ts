@@ -1,39 +1,53 @@
-let firstName = 'Mark';
+type ServiceList = UserDetailsAPIResponse['servicesList'];
 
-console.log(typeof firstName);
-
-type Cat = {
-  type: 'cat';
-  purrs: boolean;
+type UserDetailsAPIResponse = {
+  id: number;
+  name: string;
+  servicesList: {
+    count: number;
+    services: {
+      id: number;
+      name: string;
+      price: number;
+    }[];
+  };
 };
 
-type Dog = {
-  type: 'dog';
-  barks: boolean;
-};
-
-type Animal = Cat | Dog;
-
-let cat: Animal = {
-  type: 'cat',
-  purrs: true,
-};
-
-let dog: Animal = {
-  type: 'dog',
-  barks: true,
-};
-
-function animalReaction(animal: Animal) {
-  switch (animal.type) {
-    case 'cat':
-      console.log('The animal is a cat and it purrs');
-      break;
-    case 'dog':
-      console.log('The Animal is a dog and it barks');
-      break;
-  }
+function fetchUserDetails(
+  name: string
+): Promise<UserDetailsAPIResponse> {
+  return new Promise((res, rej) => {
+    if (name) {
+      res({
+        id: 23,
+        name: 'John',
+        servicesList: {
+          count: 2,
+          services: [
+            {
+              id: 1,
+              name: 'Accounting',
+              price: 49,
+            },
+            {
+              id: 2,
+              name: 'Design',
+              price: 19,
+            },
+          ],
+        },
+      });
+    } else rej(new Error('Pass new a valid name'));
+  });
 }
 
-animalReaction(dog);
-animalReaction(cat);
+function printServiceList(services: ServiceList): void {
+  console.log(services);
+}
+
+fetchUserDetails('John')
+  .then((res) => {
+    console.log(res);
+    printServiceList(res.servicesList);
+  })
+  .catch((err) => console.log(err));
