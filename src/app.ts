@@ -1,53 +1,21 @@
-type ServiceList = UserDetailsAPIResponse['servicesList'];
-
-type UserDetailsAPIResponse = {
+type Events = {
   id: number;
-  name: string;
-  servicesList: {
-    count: number;
-    services: {
-      id: number;
-      name: string;
-      price: number;
-    }[];
-  };
+  date: Date;
+  type: 'indoor' | 'outdoor';
 };
 
-function fetchUserDetails(
-  name: string
-): Promise<UserDetailsAPIResponse> {
-  return new Promise((res, rej) => {
-    if (name) {
-      res({
-        id: 23,
-        name: 'John',
-        servicesList: {
-          count: 2,
-          services: [
-            {
-              id: 1,
-              name: 'Accounting',
-              price: 49,
-            },
-            {
-              id: 2,
-              name: 'Design',
-              price: 19,
-            },
-          ],
-        },
-      });
-    } else rej(new Error('Pass new a valid name'));
-  });
-}
+// -> "id" | "date" | "type"
 
-function printServiceList(services: ServiceList): void {
-  console.log(services);
-}
+type unionOfKeysOfEvents = keyof Events;
 
-fetchUserDetails('John')
-  .then((res) => {
-    console.log(res);
-    printServiceList(res.servicesList);
-  })
-  .catch((err) => console.log(err));
+type Numeric = {
+  [key: number]: string;
+};
+
+type NumericKeyOf = keyof Numeric;
+
+type NumberAndString = {
+  [key: string]: string;
+};
+
+type NumberAndStringKeyoff = keyof NumberAndString;
