@@ -1,20 +1,16 @@
-type Artist = {
-  id: number;
-  name: string;
-  bio: string;
-};
+interface Animal {
+  live: () => void;
+}
 
-type MappedArtistForEdit = {
-  [Property in keyof Artist]?: Artist[Property];
-} & { id: number };
+interface Dog extends Animal {
+  woof: () => void;
+}
 
-const artist: Artist = {
-  id: 1,
-  name: 'Justin',
-  bio: 'Hey, I am Justin',
-};
+type Example = Dog extends Animal ? string : number;
 
-const editedArtist: MappedArtistForEdit = {
-  id: 1,
-  bio: 'Hello, I am Justin',
-};
+// SomeType extends OtherType ? TrueType : FalseType;
+
+type isString<T> = T extends string ? true : false;
+
+type A = isString<string>;
+type B = isString<number>;
