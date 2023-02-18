@@ -1,1 +1,15 @@
-let numbers = [4, 6, 89, 6, 5];
+let x = 'y'; // string and not litral value Y
+const b = 'john';
+let y = 78;
+var c = false;
+let d = null;
+const z = {
+  x: 14,
+};
+
+enum Roles {
+  admin = 'admin',
+  author = 'author',
+}
+
+const user = Roles.admin;
