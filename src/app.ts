@@ -1,9 +1,20 @@
-/*
- *
- * A Decorator is a special kind of declaration that can be
- * attached to a class declaration, method, accessor,
- * property, or parameter. Decorators use the form
- * @expression, where expression must evaluate to a
- * function that will be called at runtime with
- * information about the decorated declaration.
- * */
+function FirstDecorator(constructor: Function) {
+  console.log('Decorator Invoked');
+  console.log(constructor);
+}
+
+@FirstDecorator
+class Aircraft {
+  constructor(
+    public _aircraftModel: string,
+    private pilot: string
+  ) {}
+
+  public pilotName() {
+    console.log(this.pilot);
+  }
+
+  public get aircraftModel() {
+    return this._aircraftModel;
+  }
+}
