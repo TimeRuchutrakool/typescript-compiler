@@ -38,9 +38,23 @@ class Airplane implements AircraftInterface {
   constructor(
     public _aircraftModel: string,
     private pilot: string
-  ) {
-    console.log('Aircraft Class Instantiated');
+  ) {}
+
+  public pilotName() {
+    console.log(this.pilot);
   }
+
+  public get aircraftModel() {
+    return this._aircraftModel;
+  }
+}
+
+@AircraftManufacturer(Manufacturers.boeing)
+class Helicopter implements AircraftInterface {
+  constructor(
+    public _aircraftModel: string,
+    private pilot: string
+  ) {}
 
   public pilotName() {
     console.log(this.pilot);
@@ -56,7 +70,13 @@ const airplane: AircraftInterface = new Airplane(
   'John'
 );
 
-console.log(airplane.manufacturer);
+const helicopter: AircraftInterface = new Helicopter(
+  'H380',
+  'Mark'
+);
+
+console.log(airplane);
+console.log(helicopter);
 
 airplane.airbusMethod
   ? airplane.airbusMethod()
