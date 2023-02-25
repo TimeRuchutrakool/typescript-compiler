@@ -1,16 +1,7 @@
-type ArrayElementType<T> = T extends (infer E)[] ? E : T;
+function returnString() {
+  return 123;
+}
 
-type TypeOne = ArrayElementType<string[]>;
-// string
+type FunctionReturnType<T> = T extends () => infer R ? R : T;
 
-type TypeTwo = ArrayElementType<number[]>;
-// number
-
-type TypeThree = ArrayElementType<(number | string | boolean)[]>;
-// string | number| boolean
-
-type TypeFour = ArrayElementType<{ name: string }>;
-// { name: string }
-
-type TypeFive = ArrayElementType<string>;
-// string
+type NewType = FunctionReturnType<typeof returnString>;
