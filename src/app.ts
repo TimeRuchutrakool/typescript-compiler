@@ -1,21 +1,16 @@
-interface WritePermissions {
-  write: true;
-}
+type ArrayElementType<T> = T extends (infer E)[] ? E : T;
 
-interface ReadPermissions {
-  write: false;
-}
+type TypeOne = ArrayElementType<string[]>;
+// string
 
-interface User {
-  id: number;
-  name: string;
-  email: string;
-}
+type TypeTwo = ArrayElementType<number[]>;
+// number
 
-interface Admin extends User, WritePermissions {}
-interface Author extends User, WritePermissions {}
-interface Reader extends User, ReadPermissions {}
+type TypeThree = ArrayElementType<(number | string | boolean)[]>;
+// string | number| boolean
 
-type FilterWritable<T> = T extends { write: true } ? true : false;
+type TypeFour = ArrayElementType<{ name: string }>;
+// { name: string }
 
-type Writable = FilterWritable<Reader>;
+type TypeFive = ArrayElementType<string>;
+// string
