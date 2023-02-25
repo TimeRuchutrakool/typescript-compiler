@@ -1,10 +1,21 @@
-type answer_1 = number extends 56 ? true : false; //false
-type answer_2 = 76 extends number ? true : false; // true
-type answer_3 = string[] extends any ? true : false; //true
-type answer_4 = string[] extends any[] ? true : false; // true
-type answer_5 = unknown extends any ? true : false; //true
-type answer_6 = any extends any ? true : false; // true
-type answer_7 = Date extends { new (...args: any[]): any } ? true : false; // false
-type answer_8 = typeof Date extends { new (...args: any[]): any }
-  ? true
-  : false; // true
+interface WritePermissions {
+  write: true;
+}
+
+interface ReadPermissions {
+  write: false;
+}
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+interface Admin extends User, WritePermissions {}
+interface Author extends User, WritePermissions {}
+interface Reader extends User, ReadPermissions {}
+
+type FilterWritable<T> = T extends { write: true } ? true : false;
+
+type Writable = FilterWritable<Reader>;
