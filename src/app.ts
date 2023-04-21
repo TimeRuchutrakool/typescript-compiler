@@ -1,11 +1,19 @@
-function printStrings(str: string | string[] | null) {
-  if (str && typeof str === "object") {
-    for (const s of str) {
+const user = {
+  name: "John",
+  age: 30,
+};
+
+let tom: typeof user;
+
+function printStrings(strs: string | string[] | null) {
+  if (!strs) {
+    return "Please pass in valid string or arrays of strings";
+  }
+  if (typeof strs === "object") {
+    for (const s of strs) {
       console.log(s);
     }
-  } else if (str == "string") {
-    console.log(str);
   } else {
-    console.log("Pass an array of strings or a string as an argument ");
+    console.log(strs);
   }
 }
