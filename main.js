@@ -49,7 +49,7 @@ function AdminUser(name, email, peopleReporting) {
   this.peopleReporting = peopleReporting;
 }
 
-AdminUser.prototype = Object.create(User.prototype);
+AdminUser.prototype = Object.create(User.prototype); //สร้าง object เปล่าๆมาก่อน แล้วก็ สร้างมันโดย base on proptotype User -? ที่นี้ prototype ของ AdminUser ก็จะ get a new object ที่ ิฟหำ นื ีหำพ ยพนะนะัยำ
 
 AdminUser.prototype.updatePeopleReporting = function (
   newNumber
