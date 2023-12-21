@@ -45,7 +45,7 @@ User.prototype.addPoint = function () {
 };
 
 function AdminUser(name, email, peopleReporting) {
-  User.apply(this, [name, email]);
+  User.apply(this, [name, email]); //call constructor function User
   this.peopleReporting = peopleReporting;
 }
 
