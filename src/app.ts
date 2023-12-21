@@ -3,7 +3,7 @@ enum Manufacturers {
   airbus = 'airbus',
 }
 
-interface AircraftInterface {
+interface AircraftInterface { //เพระา method พวกนี้มันอยู่ใน prototype TS มันหาไม่เจอจาก instance มันเลย error ว่าไม่เจอ
   _aircraftModel: string;
   prototype?: any;
   origin?: string;
