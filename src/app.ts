@@ -4,9 +4,8 @@ type Events = {
   type: 'indoor' | 'outdoor';
 };
 
-// -> "id" | "date" | "type"
 
-type unionOfKeysOfEvents = keyof Events;
+type unionOfKeysOfEvents = keyof Events; // -> "id" | "date" | "type"
 
 type Numeric = {
   [key: number]: string;
