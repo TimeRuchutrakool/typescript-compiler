@@ -1,5 +1,5 @@
 let greeting = 32;
-let firstName: typeof greeting;
+let firstName: typeof greeting; // : Number
 
 const user = {
   name: "John",
