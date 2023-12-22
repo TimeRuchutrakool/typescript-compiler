@@ -20,8 +20,6 @@ interface MapLocation {
 //   }
 // }
 // }
-
-
 //!  |
 //!  |
 //!  V
@@ -40,6 +38,7 @@ function AddLocation(lat: number, long: number) { //จุดประสงค�
   };
 }
 
+
 // class decorator มัน สามารถ alter a constructor function และ return a new constructor function จากใน decorator มันเองได้
 @AddLocation(1.234, 1.876)
 class Person {
@@ -48,3 +47,5 @@ class Person {
 
 const person: Person = new Person('John', 32);
 console.log(person);
+
+// <T extends { new (...args: any[]): {} }> คือ generic constraint ที่กำหนดว่า T จะต้องเป็นประเภทที่ "extends" (สืบทอด) จาก object ที่มี constructor ที่รับพารามิเตอร์ใดๆ
