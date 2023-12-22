@@ -22,3 +22,19 @@ type GetSecondArgumentOfAnyFucntion<T> = T extends (
 
 type FirstArgument = GetFirstArgumentOfAnyFucntion<typeof person>;
 type SecondArgument = GetSecondArgumentOfAnyFucntion<typeof person>;
+
+
+// statisfied operator -> จะ prevalidate all the properties of the object for us
+
+type Properties = 'red' | 'green' | 'blue'
+type RGB = [red: number, green: number, blue: number]
+
+const color = {
+  red: [255, 0, 0],
+  green: '#00f00',
+  blue: [255, 255, 0]
+} satisfies Record<Properties,RGB|string> //satisfies operator จะ validate the red green blue values for us and check in advance ว่า those properties contains a string or an array of RGB
+
+
+color.blue.toLowerCase()
+color.green.toLowerCase()
