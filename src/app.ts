@@ -16,6 +16,12 @@ function AccessorDecorator(
   console.log(propertyDescriptor);
 }
 
+function ParameterDecorator(classPrototype:Object,methodname:string,index:number){
+  console.log(classPrototype)
+  console.log(methodname)
+  console.log(index)
+}
+
 class Airplane {
   @PropertyDecorator
   public _aircraftModel: string;
@@ -27,8 +33,9 @@ class Airplane {
     console.log('150 Seats');
   }
 
-  public pilotName(name: string, lastName: string) {
+  public pilotName(name: string,@ParameterDecorator lastName: string) {
     console.log(name);
+    console.log(lastName)
   }
 
   @AccessorDecorator
