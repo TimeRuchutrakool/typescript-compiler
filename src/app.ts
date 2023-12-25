@@ -1,3 +1,5 @@
+// จะเป็นเหมือนตรงข้ามกับ pick utility tyoe
+
 // Omit<OldType, Keys>;
 
 interface User {
@@ -7,4 +9,4 @@ interface User {
   password: string;
 }
 
-type LimitedUser = Omit<User, "password" | "age">;
+type LimitedUser = Omit<User, "password" | "age">; //จะไม่ contain password และ age
