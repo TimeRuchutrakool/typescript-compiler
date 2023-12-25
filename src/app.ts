@@ -1,3 +1,5 @@
+// จะช่วยให้ prop ของ original type required ทั้งหมด
+
 // Required<Type>;
 
 interface User {
@@ -8,3 +10,8 @@ interface User {
 }
 
 type RegisterUser = Required<Pick<User, "email" | "password">>;
+
+const a: RegisterUser = {
+  email: '',
+  password:''
+}
