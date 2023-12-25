@@ -1,3 +1,5 @@
+// ช่วยให้เรา create a new type based on an existing type ที่ pass เข้าไป แต่ prop ทั้งหมดจะถูก set เป็น optional
+
 //  Partial<Type>;
 interface User {
   name: string;
@@ -15,4 +17,4 @@ const user: User = {
   password: "password",
 };
 
-const updatedUser = updateUser(user, { email: "email@test.com" });
+const updatedUser = updateUser(user, { email: "email@test.com",address:'' });
